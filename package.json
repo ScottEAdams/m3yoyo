@@ -1,0 +1,49 @@
+{
+  "name": "m3yoyo",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.9.8",
+    "@material-ui/icons": "^4.9.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "directory-tree": "^2.2.4",
+    "fs": "^0.0.1-security",
+    "m3u8-file-parser": "^0.2.3",
+    "material-table": "^1.57.2",
+    "material-ui-dropzone": "^2.4.9",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "store2": "^2.11.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "grab-icons": "wget -O tvlogos.tar.xz https://github.com/picons/picons/releases/download/2020-03-28--19-06-07/snp-full.220x132-190x102.dark.on.reflection_2020-03-28--19-06-07.hardlink.tar.xz",
+    "extract-icons": "tar -zxvf tvlogos.tar.xz -C public/tvlogos --strip 1 && rm tvlogos.tar.xz",
+    "grab-extract": "npm run grab-icons && npm run extract-icons",
+    "gen-json": "node gen-json.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "prettier": "2.0.2"
+  }
+}
