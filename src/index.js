@@ -4,14 +4,11 @@ import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { HelmetProvider } from 'react-helmet-async'
 
 ReactDOM.render(
     <React.StrictMode>
         <CssBaseline/>
-        <HelmetProvider>
-            <App/>
-        </HelmetProvider>
+        <App/>
     </React.StrictMode>,
     document.getElementById('root')
 )

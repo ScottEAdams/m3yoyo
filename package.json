@@ -1,6 +1,7 @@
 {
   "name": "m3yoyo",
   "version": "0.1.0",
+  "homepage": "http://scotteadams.github.io/m3yoyo",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.8",
@@ -19,14 +20,16 @@
     "store2": "^2.11.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "grab-icons": "wget -O tvlogos.tar.xz https://github.com/picons/picons/releases/download/2020-03-28--19-06-07/snp-full.220x132-190x102.dark.on.reflection_2020-03-28--19-06-07.hardlink.tar.xz",
     "extract-icons": "tar -zxvf tvlogos.tar.xz -C public/tvlogos --strip 1 && rm tvlogos.tar.xz",
     "grab-extract": "npm run grab-icons && npm run extract-icons",
-    "gen-json": "node gen-json.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "gen-json": "node gen-json.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +47,7 @@
     ]
   },
   "devDependencies": {
-    "prettier": "2.0.2"
+    "prettier": "2.0.2",
+    "gh-pages": "^2.2.0"
   }
 }
