@@ -50,7 +50,7 @@ const ListboxComponent = React.forwardRef(function ListboxComponent(props, ref) 
     }
 
     return (
-        <div ref={ref}>
+        <div ref={ref} style={{backgroundColor: '#3d3d3d'}}>
             <OuterElementContext.Provider value={other}>
                 <VariableSizeList
                     itemData={itemData}
@@ -70,17 +70,19 @@ const ListboxComponent = React.forwardRef(function ListboxComponent(props, ref) 
     )
 })
 
-const LogoAutocomplete = () => {
+const LogoAutocomplete = (props) => {
     return (
         <Autocomplete
+            value={props.value}
+            onChange={(e,v) => {props.onChange(v)}}
             freeSolo
             id="logo-select"
             disableClearable
             disableListWrap
+            autoSelect
             ListboxComponent={ListboxComponent}
-            options={logos}
-            getOptionLabel={(option) => option.url}
-            renderOption={(option) => <img src={option.url} style={{ width: 70 }}/>}
+            options={logos.map((option) => option.url)}
+            renderOption={(option) => <img src={option} style={{ width: 70 }}/>}
             renderInput={(params) => (
                 <TextField
                     {...params}
