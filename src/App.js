@@ -4,6 +4,7 @@ import { DropzoneArea } from 'material-ui-dropzone'
 import M3U8FileParser from 'm3u8-file-parser'
 import store from 'store2'
 import MaterialTable from 'material-table'
+import LogoAutocomplete from './LogoAutocomplete'
 
 const App = () => {
     let fileReader
@@ -45,7 +46,8 @@ const App = () => {
                 columnsArray.push({
                     title: c,
                     field: c,
-                    render: rowData => <img src={rowData.tvgLogo} style={{width: 70}}/>
+                    render: rowData => <img src={rowData.tvgLogo} style={{ width: 70 }}/>,
+                    editComponent: () => <LogoAutocomplete/>
                 })
             } else {
                 columnsArray.push({
@@ -146,7 +148,7 @@ const App = () => {
                                     }
                                     resolve()
                                 }, 100)
-                            }),
+                            })
                     }}
                 />}
             </main>

@@ -6,9 +6,11 @@
   "dependencies": {
     "@material-ui/core": "^4.9.8",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.47",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "cross-fetch": "^3.0.4",
     "directory-tree": "^2.2.4",
     "fs": "^0.0.1-security",
     "m3u8-file-parser": "^0.2.3",
@@ -17,6 +19,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "react-window": "^1.8.5",
     "store2": "^2.11.0"
   },
   "scripts": {
@@ -26,7 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "grab-icons": "wget -O tvlogos.tar.xz https://github.com/picons/picons/releases/download/2020-03-28--19-06-07/snp-full.220x132-190x102.dark.on.reflection_2020-03-28--19-06-07.hardlink.tar.xz",
+    "grab-icons": "wget -O tvlogos.tar.xz https://github.com/picons/picons/releases/download/2020-03-28--19-06-07/snp-full.220x132-190x102.light.on.transparent_2020-03-28--19-06-07.hardlink.tar.xz",
     "extract-icons": "tar -zxvf tvlogos.tar.xz -C public/tvlogos --strip 1 && rm tvlogos.tar.xz",
     "grab-extract": "npm run grab-icons && npm run extract-icons",
     "gen-json": "node gen-json.js"
@@ -47,7 +50,7 @@
     ]
   },
   "devDependencies": {
-    "prettier": "2.0.2",
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^2.2.0",
+    "prettier": "2.0.2"
   }
 }
