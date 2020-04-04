@@ -1,51 +1,49 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
-import { DropzoneArea } from 'material-ui-dropzone'
-import M3U8FileParser from 'm3u8-file-parser'
-import store from 'store2'
-import DataTable from './DataTable'
+import { Box } from '@material-ui/core'
+import AppBar from '@material-ui/core/AppBar'
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
+import Typography from '@material-ui/core/Typography'
+import M3U from './M3U'
+
+const TabPanel = (props) => {
+    const { children, value, index, ...other } = props
+
+    return (
+        <Typography
+            component="div"
+            role="tabpanel"
+            hidden={value !== index}
+            id={`nav-tabpanel-${index}`}
+            aria-labelledby={`nav-tab-${index}`}
+            {...other}
+        >
+            {value === index && <Box p={3}>{children}</Box>}
+        </Typography>
+    )
+}
 
 const App = () => {
-    let fileReader
+    const [value, setValue] = React.useState(0)
 
-    const [hasFile, setHasFile] = useState(false)
-
-    useEffect(() => {
-        if (store.has('m3uOriginal')) {
-            setHasFile(true)
-        }
-    }, [])
-
-    const readFile = (e) => {
-        const content = fileReader.result
-        const reader = new M3U8FileParser()
-        reader.read(content)
-        const result = reader.getResult()
-        if (result) {
-            store('m3uOriginal', result)
-            setHasFile(true)
-        }
-    }
-
-    const newFile = (e) => {
-        fileReader = new FileReader()
-        fileReader.onloadend = readFile
-        fileReader.readAsText(e[0])
+    const handleChange = (event, newValue) => {
+        setValue(newValue)
     }
 
     return (
         <div className="App">
             <header className="App-header">
-                {!hasFile && <DropzoneArea
-                    onChange={newFile}
-                    acceptedFiles={['audio/x-mpegurl', 'audio/mpegurl']}
-                    filesLimit={1}
-                    dropzoneText='To get started, add your playlist file here'
-                    useChipsForPreview={true}
-                />}
             </header>
             <main>
-                {hasFile && <DataTable/>}
+                <AppBar position="static">
+                    <Tabs value={value} onChange={handleChange} aria-label="m3yoyo tabs">
+                        <Tab label="m3u"/>
+                    </Tabs>
+                </AppBar>
+                <TabPanel value={value} index={0}>
+                    <M3U/>
+                </TabPanel>
             </main>
         </div>
     )

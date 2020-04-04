@@ -36,17 +36,3 @@
         transform: rotate(360deg);
     }
 }
-
-.DropzoneArea-dropZone-2 {
-    max-width: 500px;
-}
-
-.DropzoneArea-dropzoneParagraph-7 {
-    color: #282c34;
-}
-
-table {
-    width: 95% !important;
-    margin-left: auto;
-    margin-right: auto;
-}
