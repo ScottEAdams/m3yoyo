@@ -1,8 +1,10 @@
-##m3yoyo - m3u editor
+# m3yoyo - m3u editor
+
+Something quick and easy for simple editing of m3u for iptv.
 
 Standalone m3u editor that uses localstorage for keeping your file data in your own browser only.
 
-Simple react-app with material-ui, material-tables and m3u8-file-parser.
+React-app with material-ui, material-tables and m3u8-file-parser.
 
 Uses prebuilt https://github.com/picons/picons for icons.
 
