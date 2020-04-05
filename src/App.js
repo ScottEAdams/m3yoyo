@@ -1,35 +1,15 @@
 import React from 'react'
 import './App.css'
-import { Box } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 import M3U from './M3U'
-
-const TabPanel = (props) => {
-    const { children, value, index, ...other } = props
-
-    return (
-        <Typography
-            component="div"
-            role="tabpanel"
-            hidden={value !== index}
-            id={`nav-tabpanel-${index}`}
-            aria-labelledby={`nav-tab-${index}`}
-            {...other}
-        >
-            {value === index && <Box p={3}>{children}</Box>}
-        </Typography>
-    )
-}
+import Toolbar from '@material-ui/core/Toolbar'
+import IconButton from '@material-ui/core/IconButton'
+import GitHubIcon from '@material-ui/icons/GitHub'
+import { useStyles } from './styles'
 
 const App = () => {
-    const [value, setValue] = React.useState(0)
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue)
-    }
+    const classes = useStyles()
 
     return (
         <div className="App">
@@ -37,13 +17,16 @@ const App = () => {
             </header>
             <main>
                 <AppBar position="static">
-                    <Tabs value={value} onChange={handleChange} aria-label="m3yoyo tabs">
-                        <Tab label="m3u"/>
-                    </Tabs>
+                    <Toolbar>
+                        <Typography variant="h6">
+                            m3yoyo
+                        </Typography>
+                        <IconButton className={classes.goRight} href='https://github.com/ScottEAdams/m3yoyo'>
+                            <GitHubIcon/>
+                        </IconButton>
+                    </Toolbar>
                 </AppBar>
-                <TabPanel value={value} index={0}>
-                    <M3U/>
-                </TabPanel>
+                <M3U/>
             </main>
         </div>
     )
