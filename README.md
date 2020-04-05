@@ -1,4 +1,4 @@
-#WIP: m3yoyo - m3u editor
+#m3yoyo - m3u editor
 
 Standalone m3u editor that uses localstorage for keeping your file data in your own browser only.
 
@@ -23,3 +23,4 @@ Some possible future ideas:
 
 - Add built in player in detail panel so you can check the stream
 - Add custom columns to insert more tags
+- Check against an epg file to make sure id's are correct
