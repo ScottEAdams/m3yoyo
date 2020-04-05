@@ -192,7 +192,19 @@ const M3U = (props) => {
                             {
                                 tooltip: 'Remove Selected',
                                 icon: 'delete',
-                                onClick: (evt, data) => alert('You want to delete ' + data.length + ' rows')
+                                onClick: (evt, data) => {
+                                    console.log(data)
+                                    let rows = m3uData.rows
+                                    data.forEach((d) => {
+                                        const index = rows.indexOf(d)
+                                        rows.splice(index, 1)
+                                    })
+                                    rows = reSortData(rows)
+                                    setWorkaround({
+                                        data: { rows: rows }, resolve: () => {
+                                        }
+                                    })
+                                }
                             }
                         ]}
                         localization={{
