@@ -1,4 +1,4 @@
-#m3yoyo - m3u editor
+##m3yoyo - m3u editor
 
 Standalone m3u editor that uses localstorage for keeping your file data in your own browser only.
 
