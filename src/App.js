@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './App.css'
 import { Box } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
