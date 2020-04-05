@@ -193,7 +193,6 @@ const M3U = (props) => {
                                 tooltip: 'Remove Selected',
                                 icon: 'delete',
                                 onClick: (evt, data) => {
-                                    console.log(data)
                                     let rows = m3uData.rows
                                     data.forEach((d) => {
                                         const index = rows.indexOf(d)
