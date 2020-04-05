@@ -7,6 +7,7 @@ import { m3uDataState, m3uOriginalState } from './LocalStore'
 import M3U8FileParser from 'm3u8-file-parser'
 import LogoAutocomplete from './LogoAutocomplete'
 import { useStyles } from './styles'
+import arrayMove from 'array-move'
 
 const M3U = (props) => {
     const classes = useStyles()
@@ -111,26 +112,43 @@ const M3U = (props) => {
         setM3uData({ rows: dataArray })
     }
 
+    const reSortData = (data) => {
+        return data.map((d, idx) => {
+            d.sort = idx + 1
+            return d
+        })
+    }
+
     const onRowAdd = newData =>
         new Promise((resolve, reject) => {
-            const data = m3uData.rows
+            let data = m3uData.rows
             data.push(newData)
+            data = reSortData(data)
             setWorkaround({ data: { rows: data }, resolve: resolve })
         })
 
     const onRowDelete = oldData =>
         new Promise((resolve, reject) => {
-            const data = m3uData.rows
+            let data = m3uData.rows
             const index = data.indexOf(oldData)
             data.splice(index, 1)
+            data = reSortData(data)
             setWorkaround({ data: { rows: data }, resolve: resolve })
         })
 
     const onRowUpdate = (newData, oldData) =>
         new Promise((resolve, reject) => {
-            const data = m3uData.rows
+            let data = m3uData.rows
             const index = data.indexOf(oldData)
             data[index] = newData
+            if (parseInt(newData.sort, 10) !== parseInt(oldData.sort, 10)) {
+                data = arrayMove(
+                    data,
+                    parseInt(oldData.sort, 10) - 1,
+                    parseInt(newData.sort, 10) - 1
+                )
+                data = reSortData(data)
+            }
             setWorkaround({ data: { rows: data }, resolve: resolve })
         })
 
