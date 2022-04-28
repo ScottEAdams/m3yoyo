@@ -11,7 +11,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "array-move": "^2.2.1",
-    "cross-fetch": "^3.0.4",
+    "cross-fetch": "^3.1.5",
     "directory-tree": "^2.2.4",
     "fs": "^0.0.1-security",
     "m3u8-file-parser": "^0.2.3",
